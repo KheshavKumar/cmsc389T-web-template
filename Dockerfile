@@ -9,7 +9,7 @@ FROM node:10-alpine
 EXPOSE 8080
 ADD package*.json ./
 RUN npm install
-COPY ./  ./
-COPY IMG-20230820-WA0023-01-01_Original.jpeg ./
-COPY logo.png ./
+ADD ./  ./
+ADD kheshav.jpeg ./
+ADD logo.png ./
 CMD ["node", "app.js"]
