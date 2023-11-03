@@ -5,11 +5,29 @@
 #the docker lecture will help you complete this file 
 #there should be a total of 9 lines
 
+# FROM node:10-alpine
+# EXPOSE 8080
+# ADD package*.json ./
+# RUN npm install
+# ADD ./  ./
+# ADD kheshav.jpeg ./
+# ADD logo.png ./
+# CMD ["node", "app.js"]
 FROM node:10-alpine
-EXPOSE 8080
-ADD package*.json ./
+
+#create a directory for the app and its node_modules with node as its owner
+RUN mkdir -p /home/node/app && chown -R node:node /home/node/app 
+
+WORKDIR /home/node/app
+
+COPY package*.json ./
+
+USER node
+
 RUN npm install
-ADD ./  ./
-ADD kheshav.jpeg ./
-ADD logo.png ./
+
+EXPOSE 8080
+
+COPY --chown=node:node . .
+
 CMD ["node", "app.js"]
