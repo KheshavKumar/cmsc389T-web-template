@@ -9,8 +9,8 @@ jobs:
     steps:
       
       - name: testing
-        # uses: appleboy/ssh-action@master 
-        uses: actions/checkout@v3
+        uses: appleboy/ssh-action@master 
+        # uses: actions/checkout@v3
         with:
           host: ${{secrets.HOST}} 
           username: ${{secrets.USERNAME}}
