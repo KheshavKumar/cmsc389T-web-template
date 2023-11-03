@@ -7,11 +7,10 @@ jobs:
     name: Clone 
     runs-on: ubuntu-latest 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2  # This action automatically configures Git, including SSH authentication.
-        
+      
       - name: testing
-        uses: appleboy/ssh-action@master 
+        # uses: appleboy/ssh-action@master 
+        uses: actions/checkout@v3
         with:
           host: ${{secrets.HOST}} 
           username: ${{secrets.USERNAME}}
